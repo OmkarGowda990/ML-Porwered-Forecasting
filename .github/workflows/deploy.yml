@@ -19,7 +19,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/ubuntu/Prophet-Forecasting-For-Portfolio-Optimisation
+            cd /home/ubuntu/ML-Porwered-Forecastin
             git pull origin main
             chmod +x scripts/deploy.sh
             ./scripts/deploy.sh
