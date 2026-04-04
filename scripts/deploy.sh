@@ -2,7 +2,7 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
-REPO_PATH="/root/ML-Porwered-Forecasting"
+REPO_PATH="/home/ubuntu/ML-Porwered-Forecasting"
 SERVICE_NAME="streamlit-app.service"
 
 echo "Navigating to repository..."
