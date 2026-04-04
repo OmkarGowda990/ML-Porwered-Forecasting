@@ -1,4 +1,4 @@
-name: Deploy to Vercel VPS
+name: Deploy to AWS instance
 
 on:
   push:
@@ -12,10 +12,14 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Deploy to VPS
+      - name: Deploy to EC2
         uses: appleboy/ssh-action@master
         with: 
           host: 3.91.223.188
           username: ubuntu
-          key: ${{ secrets.SSH_PRIVATE_KEY}}
-          script: /home/ubuntu/Prophet-Forecasting-For-Portfolio-Optimisation/scripts/deploy.sh
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /home/ubuntu/Prophet-Forecasting-For-Portfolio-Optimisation
+            git pull origin main
+            chmod +x scripts/deploy.sh
+            ./scripts/deploy.sh
