@@ -15,7 +15,7 @@ jobs:
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master
         with: 
-          host: 31.97.116.211
+          host: 3.91.223.188
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY}}
           script: /root/Prophet-Forecasting-For-Portfolio-Optimisation/scripts/deploy.sh
