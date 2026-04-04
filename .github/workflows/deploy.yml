@@ -19,4 +19,3 @@ jobs:
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY}}
           script: /root/Prophet-Forecasting-For-Portfolio-Optimisation/scripts/deploy.sh
-      
