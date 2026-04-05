@@ -4,6 +4,8 @@ set -e
 
 REPO_PATH="/home/ubuntu/ML-Porwered-Forecasting"
 SERVICE_NAME="streamlit-app.service"
+VENV_PYTHON="/home/ubuntu/ml-venv/bin/python3"
+VENV_PIP="/home/ubuntu/ml-venv/bin/pip"
 
 echo "Navigating to repository..."
 cd $REPO_PATH
@@ -13,9 +15,9 @@ echo "Pulling latest code from GitHub..."
 git pull
 
 # 2. Check for dependency changes and install them
-if git diff --name-only HEAD@{1} HEAD | grep -q "pyproject.toml"; then
-    echo "pyproject.toml changed. Installing new dependencies..."
-    /root/.local/bin/poetry install
+if git diff --name-only HEAD@{1} HEAD | grep -qE "requirements\.txt|requirements-dev\.txt"; then
+    echo "requirements changed. Installing new dependencies..."
+    $VENV_PIP install -r requirements.txt
 fi
 
 # 3. Restart the Streamlit service
